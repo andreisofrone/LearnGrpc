@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  grpc:
+    image: ${DOCKER_REGISTRY-}grpc
+    ports:
+     - "5002:443"
+     - "5003:80"
+    build:
+      context: .
+      dockerfile: Grpc/Dockerfile
+
+  test1:
+    image: ${DOCKER_REGISTRY-}test1
+    ports:
+     - "5000:443"
+     - "5001:80"
+    build:
+      context: .
+      dockerfile: Test1/Dockerfile
